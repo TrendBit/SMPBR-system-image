@@ -16,25 +16,27 @@ copyfile:from=update_services.sh|to=/home/reactor|chown=reactor:reactor|chmod=74
 copyfile:from=update_firmware.sh|to=/home/reactor|chown=reactor:reactor|chmod=740
 
 # Core module
-mkdir:dir=/home/reactor/SMBR-can-core-module|chown=reactor:reactor|chmod=740
-git-clone:repo=https://github.com/TrendBit/SMBR-can-core-module.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/SMBR-can-core-module|gitphase=post-install
+mkdir:dir=/home/reactor/core-module|chown=reactor:reactor|chmod=740
+git-clone:repo=https://github.com/TrendBit/SMBR-can-core-module.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/core-module|gitphase=post-install
 runscript:dir=/home/reactor|script=install_core_module.sh|user=reactor|runphase=post-install
 
 # API server
 mkdir:dir=/home/reactor/oatpp|chown=reactor:reactor|chmod=740
 mkdir:dir=/home/reactor/oatpp-swagger|chown=reactor:reactor|chmod=740
-mkdir:dir=/home/reactor/SMBR-api-server|chown=reactor:reactor|chmod=740
+mkdir:dir=/home/reactor/api-server|chown=reactor:reactor|chmod=740
 git-clone:repo=https://github.com/oatpp/oatpp|user=reactor|gitdir=/home/reactor/oatpp|gitphase=post-install
 git-clone:repo=https://github.com/oatpp/oatpp-swagger|user=reactor|gitdir=/home/reactor/oatpp-swagger|gitphase=post-install
-git-clone:repo=https://github.com/TrendBit/SMBR-api-server.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/SMBR-api-server|gitphase=post-install
+git-clone:repo=https://github.com/TrendBit/SMBR-api-server.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/api-server|gitphase=post-install
 runscript:dir=/home/reactor|script=install_api_server.sh|user=reactor|runphase=post-install
 
 # Recipe-runner
-mkdir:dir=/home/reactor/SMPBR-recipe-runner|chown=reactor:reactor|chmod=740
-git-clone:repo=https://github.com/TrendBit/SMPBR-recipe-runner.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/SMPBR-recipe-runner|gitphase=post-install
+mkdir:dir=/home/reactor/recipe-runner|chown=reactor:reactor|chmod=740
+git-clone:repo=https://github.com/TrendBit/SMPBR-recipe-runner.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/recipe-runner|gitphase=post-install
 runscript:dir=/home/reactor|script=install_recipe_runner.sh|user=reactor|runphase=post-install
 
 # Telegraf
+mkdir:dir=/home/reactor/database-export|chown=reactor:reactor|chmod=740
+git-clone:repo=https://github.com/TrendBit/SMPBR-database-export.git|gitsw=--recursive|user=reactor|gitdir=/home/reactor/database-export|gitphase=post-install
 copyfile:from=telegraf.deb|to=/home/reactor|chown=reactor:reactor|chmod=740
 runscript:dir=/home/reactor|script=install_telegraf.sh|user=reactor|runphase=post-install
 
@@ -45,7 +47,3 @@ apps:apps=@apps
 disables:piwiz
 disables:bluetooth
 L10n:host
-
-
-
-

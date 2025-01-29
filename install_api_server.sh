@@ -8,7 +8,7 @@ mkdir -p build && cd build
 cmake ..
 sudo make install
 
-cd ~/SMBR-api-server
+cd ~/api-server
 git submodule update --init --recursive
 mkdir -p build && cd build
 cmake ..
