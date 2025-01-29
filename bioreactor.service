@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name>BioReactor</name>
+  <name replace-wildcards="yes">BioReactor_%h</name>
   <service>
     <type>_bioreactor_api._tcp</type>
     <port>8089</port>
