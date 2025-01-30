@@ -11,3 +11,4 @@ libdw-dev
 libunwind-dev
 libdwarf-dev
 python3-can
+avahi-utils
