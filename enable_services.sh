@@ -4,7 +4,7 @@
 sudo mv /home/reactor/can0.service /etc/systemd/system/
 sudo mv /home/reactor/bioreactor.service /etc/avahi/services/
 
-sudo chmod 644 /etc/avahi/services/bioreactor.service
+sudo chmod 666 /etc/avahi/services/bioreactor.service
 
 # Reload systemd to recognize the new service
 sudo systemctl daemon-reload
