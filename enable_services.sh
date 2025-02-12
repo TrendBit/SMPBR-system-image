@@ -33,11 +33,6 @@ sudo systemctl start api-server
 cd /home/reactor/recipe-runner/build
 sudo make install-service
 
-# Add env variables related to device SID and location of target database (mDNS of smpbr_data.local)
-echo 'export SMPBR_SID=$(core-module --sid)' | sudo tee -a /etc/profile > /dev/null
-echo 'export SMPBR_DATABASE=$(avahi-resolve-host-name -4 smpbr_data.local | cut -f2)' | sudo tee -a /etc/profile > /dev/null
-source /etc/profile
-
 # Telegraf
 sudo touch /etc/telegraf/telegraf.env
 sudo systemctl enable telegraf.service
